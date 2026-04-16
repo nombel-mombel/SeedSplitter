@@ -1,12 +1,10 @@
 package tronka.seedsplitter;
 
-import com.mojang.logging.LogUtils;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.registry.RegistryKey;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.World;
-
+import net.minecraft.world.level.Level;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -46,11 +44,11 @@ public class SeedSplitter implements ModInitializer {
         }
     }
 
-    public static long getSeed(MinecraftServer server, RegistryKey<World> registryKey) {
-        String key = registryKey.getValue().toString();
+    public static long getSeed(MinecraftServer server, ResourceKey<Level> registryKey) {
+        String key = registryKey.identifier().toString();
         if (seedMap.containsKey(key)) {
             return seedMap.get(key);
         }
-        return server.getSaveProperties().getGeneratorOptions().getSeed();
+        return server.getWorldGenSettings().options().seed();
     }
 }

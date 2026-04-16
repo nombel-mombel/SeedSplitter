@@ -1,4 +1,4 @@
-accessWidener v2 named
+accessWidener v2 official
 
-accessible field net/minecraft/world/World biomeAccess Lnet/minecraft/world/biome/source/BiomeAccess;
-mutable field net/minecraft/world/World biomeAccess Lnet/minecraft/world/biome/source/BiomeAccess;
+accessible field net/minecraft/world/level/Level biomeManager Lnet/minecraft/world/level/biome/BiomeManager;
+mutable field net/minecraft/world/level/Level biomeManager Lnet/minecraft/world/level/biome/BiomeManager;
